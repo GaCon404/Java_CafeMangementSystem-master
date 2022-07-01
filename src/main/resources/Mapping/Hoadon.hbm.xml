@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="CafeMangementSystem.Entities.Hoadon" table="hoadon" schema="quancafe">
+        <id name="mahoadon">
+            <column name="mahoadon" sql-type="int unsigned"/>
+        </id>
+        <property name="mucgiamgia">
+            <column name="mucgiamgia" sql-type="int" not-null="true"/>
+        </property>
+        <property name="thanhtien">
+            <column name="thanhtien" sql-type="float" precision="-1"/>
+        </property>
+        <property name="tientra">
+            <column name="tientra" sql-type="float" precision="-1"/>
+        </property>
+        <property name="tienthoi">
+            <column name="tienthoi" sql-type="float" precision="-1"/>
+        </property>
+        <property name="ngaygiaodich">
+            <column name="ngaygiaodich" sql-type="datetime"/>
+        </property>
+        <property name="nvlaphoadon">
+            <column name="nvlaphoadon" sql-type="int unsigned"/>
+        </property>
+        <many-to-one name="nhanvienByNvlaphoadon" class="CafeMangementSystem.Entities.Nhanvien">
+            <column name="nvlaphoadon"/>
+        </many-to-one>
+        <set name="chitietHoadonsByMahoadon" inverse="true">
+            <key>
+                <column name="mahoadon"/>
+            </key>
+            <one-to-many not-found="ignore" class="CafeMangementSystem.Entities.ChitietHoadon"/>
+        </set>
+    </class>
+</hibernate-mapping>

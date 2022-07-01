@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="root" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <BorderPane fx:id="QuanLyMonAn_BorderPane" disable="true" maxHeight="750.0" maxWidth="1150.0">
+            <top>
+                <BorderPane prefHeight="150.0" BorderPane.alignment="CENTER">
+                    <center>
+                        <HBox fx:id="SearchArea" alignment="CENTER" prefWidth="0.0" BorderPane.alignment="CENTER">
+                            <BorderPane.margin>
+                                <Insets />
+                            </BorderPane.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <TextField fx:id="SearchBar" prefWidth="250" promptText="Nhập từ khóa">
+                                    <HBox.margin>
+                                        <Insets right="10.0" />
+                                    </HBox.margin>
+                                </TextField>
+                                <ComboBox fx:id="SearchKeywordType_ComboBox" prefWidth="150.0" promptText="Chọn tiêu chí">
+                                    <HBox.margin>
+                                        <Insets right="10.0" />
+                                    </HBox.margin>
+                                </ComboBox>
+                                <Button fx:id="SearchButton" mnemonicParsing="false" onMouseClicked="#SearchButton_OnClick" text="Tìm kiếm" />
+                            </children>
+                        </HBox>
+                    </center>
+               <top>
+                  <BorderPane maxHeight="70.0" prefHeight="70.0" BorderPane.alignment="CENTER">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <center>
+                        <Label text="Quản lý món ăn" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                     </center>
+                  </BorderPane>
+               </top>
+                </BorderPane>
+            </top>
+            <center>
+                <ScrollPane style="-fx-background-color:transparent;" vbarPolicy="ALWAYS">
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
+               <content>
+                        <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0">
+                            <children>
+                                <TableView fx:id="MonAns_Table" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn fx:id="clmMaMon" editable="false" prefWidth="54.0" resizable="false" text="Mã món" />
+                                        <TableColumn fx:id="clmTenMon" editable="false" prefWidth="186.0" resizable="false" text="Tên món" />
+                                        <TableColumn fx:id="clmSeeDetails" editable="false" prefWidth="74.0" resizable="false" text="Xem chi tiết" />
+                                        <TableColumn fx:id="clmGiaBan" editable="false" prefWidth="110.0" resizable="false" text="Giá món" />
+                                        <TableColumn fx:id="clmTrangThaiBan" editable="false" prefWidth="117.0" resizable="false" text="Trạng thái bán" />
+                                        <TableColumn fx:id="clmActions" editable="false" prefWidth="229.0" resizable="false" text="Hành động" />
+                                    </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+               </content>
+                </ScrollPane>
+            </center>
+            <bottom>
+                <HBox alignment="CENTER" prefHeight="70.0" prefWidth="0.0" spacing="20.0" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets />
+                    </BorderPane.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                    <children>
+                        <Button fx:id="AddNewButton" mnemonicParsing="false" onMouseClicked="#AddNewButton_Clicked" text="Thêm món mới" />
+                        <Button fx:id="RefreshButton" mnemonicParsing="false" onMouseClicked="#RefreshButton_Clicked" text="Refresh thông tin về mặc định" />
+                        <Button fx:id="DeselectButton" disable="true" mnemonicParsing="false" onMouseClicked="#DeselectButton_Clicked" text="Bỏ chọn" />
+                    </children>
+                </HBox>
+            </bottom>
+            <right>
+                <StackPane maxWidth="350.0" prefWidth="350.0">
+                    <ScrollPane fx:id="ChiTietMonAn_Pane" fitToWidth="true" style="-fx-background-color:transparent;" vbarPolicy="ALWAYS" visible="false" BorderPane.alignment="CENTER">
+                       <content>
+                           <VBox>
+                              <GridPane>
+                                  <columnConstraints>
+                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="20" />
+                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="80" />
+                                  </columnConstraints>
+                                  <rowConstraints>
+                                      <RowConstraints maxHeight="Infinity" valignment="CENTER" vgrow="SOMETIMES" />
+                                      <RowConstraints valignment="CENTER" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="Infinity" valignment="CENTER" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="Infinity" valignment="CENTER" vgrow="SOMETIMES" />
+                                  </rowConstraints>
+                                  <Label fx:id="ChiTietMonAn_TenMon" style="-fx-font-weight: bold;" text="Tên món" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+                                  <ImageView fx:id="ChiTietMonAn_ImageMon" fitHeight="200.0" fitWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                      <image>
+                                          <Image url="@../Default_Images/fast-food.png" />
+                                      </image>
+                                  </ImageView>
+                                  <Label style="-fx-font-weight: bold;" text="Giá hiện tại" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                  <Label fx:id="ChiTietMonAn_GiaBan" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                  <Label style="-fx-font-weight: bold;" text="Trạng thái bán" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                  <Label fx:id="ChiTietMonAn_TrangThaiBan" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              </GridPane>
+                               <AnchorPane id="AnchorPane" prefWidth="350.0">
+                                   <children>
+                                       <TableView fx:id="LichSuGia_Table" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                           <columns>
+                                               <TableColumn fx:id="clmThoiDiem" editable="false" prefWidth="175.0" resizable="false" text="Thời điểm" />
+                                               <TableColumn fx:id="clmGiaTaiThoiDiem" editable="false" prefWidth="175.0" resizable="false" text="Giá món" />
+                                           </columns>
+                                       </TableView>
+                                   </children>
+                               </AnchorPane>
+                           </VBox>
+                       </content>
+                    </ScrollPane>
+                    <VBox fx:id="SelectionPrompt_Overlay" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                            <Label fx:id="selectPromptLabel" style="-fx-font-weight: bold;" text="Vui lòng chọn một món từ danh sách để xem chi tiết" textAlignment="CENTER" wrapText="true" />
+                        </children>
+                    </VBox>
+                </StackPane>
+            </right>
+        </BorderPane>
+      <VBox fx:id="loadingOverlay" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <ProgressIndicator />
+         </children>
+      </VBox>
+    </children>
+</StackPane>

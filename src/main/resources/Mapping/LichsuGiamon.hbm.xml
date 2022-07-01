@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="CafeMangementSystem.Entities.LichsuGiamon" table="lichsu_giamon" schema="quancafe">
+        <composite-id mapped="true" class="CafeMangementSystem.Entities.LichsuGiamonPK">
+            <key-property name="mamon">
+                <column name="mamon" sql-type="int unsigned"/>
+            </key-property>
+            <key-property name="thoidiemcapnhat">
+                <column name="thoidiemcapnhat" sql-type="datetime"/>
+            </key-property>
+        </composite-id>
+        <property name="giacapnhat">
+            <column name="giacapnhat" sql-type="float" precision="-1"/>
+        </property>
+        <many-to-one name="monmenuByMamon" class="CafeMangementSystem.Entities.Monmenu">
+            <column name="mamon"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

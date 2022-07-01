@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/quancafe</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">1234</property>
+        <property name="hibernate.connection.isolation">2</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!--Mapping-->
+        <mapping class="CafeMangementSystem.Entities.Nhanvien"/>
+        <mapping class="CafeMangementSystem.Entities.Hoadon"/>
+        <mapping class="CafeMangementSystem.Entities.ChitietHoadon"/>
+        <mapping class="CafeMangementSystem.Entities.Monmenu"/>
+        <mapping class="CafeMangementSystem.Entities.LichsuGiamon"/>
+
+<!--        <mapping resource="Mapping/Nhanvien.hbm.xml"/>-->
+<!--        <mapping resource="Mapping/Hoadon.hbm.xml"/>-->
+<!--        <mapping resource="Mapping/ChitietHoadon.hbm.xml"/>-->
+<!--        <mapping resource="Mapping/Monmenu.hbm.xml"/>-->
+<!--        <mapping resource="Mapping/LichsuGiamon.hbm.xml"/>-->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

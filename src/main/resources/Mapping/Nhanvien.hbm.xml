@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="CafeMangementSystem.Entities.Nhanvien" table="nhanvien" schema="quancafe">
+        <id name="manv">
+            <column name="manv" sql-type="int unsigned"/>
+        </id>
+        <property name="tennv">
+            <column name="tennv" sql-type="varchar(25)" length="25"/>
+        </property>
+        <property name="ngaysinh">
+            <column name="ngaysinh" sql-type="datetime"/>
+        </property>
+        <property name="dienthoai">
+            <column name="dienthoai" sql-type="varchar(12)" length="12"/>
+        </property>
+        <property name="diachi">
+            <column name="diachi" sql-type="varchar(90)" length="90"/>
+        </property>
+        <property name="tendangnhap">
+            <column name="tendangnhap" sql-type="varchar(32)" length="32"/>
+        </property>
+        <property name="matkhau">
+            <column name="matkhau" sql-type="varchar(256)" length="256"/>
+        </property>
+        <property name="chucvu">
+            <column name="chucvu" sql-type="enum('chuquan', 'nvbanhang')"/>
+        </property>
+        <property name="trangthai">
+            <column name="trangthai" sql-type="tinyint(1)"/>
+        </property>
+        <set name="hoadonsByManv" inverse="true">
+            <key>
+                <column name="nvlaphoadon"/>
+            </key>
+            <one-to-many not-found="ignore" class="CafeMangementSystem.Entities.Hoadon"/>
+        </set>
+    </class>
+</hibernate-mapping>

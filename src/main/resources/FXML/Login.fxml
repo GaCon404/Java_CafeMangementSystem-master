@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CafeMangementSystem.Controllers.LoginController">
+   <children>
+      <BorderPane prefHeight="300.0" prefWidth="200.0">
+         <center>
+            <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="124.80001220703124" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="482.0" minWidth="10.0" prefWidth="275.9999877929687" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="114.4000244140625" minHeight="10.0" prefHeight="112.80001831054688" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="70.59998168945313" minHeight="10.0" prefHeight="42.199981689453125" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="65.60001220703126" minHeight="10.0" prefHeight="40.79999389648438" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="100.00000610351563" minHeight="10.0" prefHeight="100.00000610351563" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Đăng nhập" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="usernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label text="Mật khẩu" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <PasswordField fx:id="passwordPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </PasswordField>
+                  <Label text="Tên đăng nhập" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" onAction="#login" text="Login" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+         </center>
+         <right>
+            <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <content>
+                  <VBox prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <Label text="Về ứng dụng này..." wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="- Với nhu cầu của các quán cafe nhỏ và vừa muốn công nghệ hóa công việc thủ công của cửa hàng mình, ứng dụng này được tạo ra để phục vụ nhu cầu cơ bản nhưng thiết yếu đó.&#10;- Ứng dụng không những đảm bảo những nhu cầu thiết yếu của một quán cafe vận hành, còn cố gắng đơn giản hóa cách sử dụng để mọi người đều có thể dễ dàng thao tác mà không cần kiến thức CNTT cao.&#10;- Version 1.0 của ứng dụng cung cấp những điểm cơ bản sau:&#10;&#9;+ Chức năng bán hàng, tạo hóa đơn cho khách được NV bán hàng sử dụng&#10;&#9;+ Dành cho chủ quán, có thể quản lý nhân viên&#10;&#9;+ Dành cho chủ quán, có thể quản lý những món ăn của quán&#10;&#9;+ Dành cho chủ quán, có thể xem thống kê những số liệu của quán như những hóa đơn,..." wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </right>
+      </BorderPane>
+   </children>
+</StackPane>
